@@ -1,0 +1,33 @@
+
+<div >
+    <ion-item>
+        <ion-searchbar placeholder="Filtrar categoria"
+        (ionInput)="getItems($event)"
+        (ionCancel)="onCancel($event)"
+        ></ion-searchbar>
+    </ion-item>
+  <ion-list *ngFor="let cat of queryItems">
+    {{cat}}
+    <ion-item >
+    
+        
+        <ion-slides pager="true" [options]="slideOpts">
+  
+            <ion-slide>
+                
+                <img src="/assets/img/PHOTO-2020-03-15-22-19-38 (1).jpg"  alt="QB logo" width="100px">
+                
+              </ion-slide>
+          
+            <ion-slide>
+                <img src="/assets/img/PHOTO-2020-03-15-22-19-38 (2).jpg"  alt="QB logo" width="100px">
+            </ion-slide>
+            
+            <ion-slide>
+                <img src="/assets/img/PHOTO-2020-03-15-22-19-38 (2).jpg"  alt="QB logo" width="100px">
+            </ion-slide>
+          </ion-slides>
+      
+  </ion-item>  
+ </ion-list>   
+</div>

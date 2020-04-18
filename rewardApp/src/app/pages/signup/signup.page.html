@@ -1,0 +1,26 @@
+
+<ion-content>
+  <div class='center'>
+    <app-logo></app-logo>
+    <h1>Cadastro</h1>
+</div>
+<form>
+<ion-list>
+  <ion-item>
+    <ion-label position="floating">Email</ion-label>
+    <ion-input type="email" name="email" [(ngModel)]="userData.email"></ion-input>
+  </ion-item>
+
+  <ion-item>
+      <ion-label position="floating">Senha</ion-label>
+      <ion-input type="password" name="password" [(ngModel)]="userData.password"></ion-input>
+    </ion-item>
+
+    <ion-button expand="block" shape='block' color='warning' (click)="signUp()">Criar Conta</ion-button>
+</ion-list>
+</form>
+
+<ion-item>
+  <a [routerLink]="[ '/login' ]">Já tenho uma conta </a>
+</ion-item>  
+</ion-content>

@@ -1,0 +1,60 @@
+<header></header>
+<div class="centerHome">
+    <ion-toolbar> 
+     <h1>Configurações</h1>
+       
+    </ion-toolbar>
+ </div> 
+   
+
+<ion-content>
+
+    <ion-list class="centerSettings" > 
+      <ion-label> Seus Dados</ion-label>
+        <ion-item>
+            <ion-label position="floating">Nome</ion-label>
+            <ion-input type="text"></ion-input>
+          </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input type="email" [(ngModel)]="userEmail"></ion-input>
+        </ion-item>
+      
+        <ion-item>
+            <ion-label position="floating">Endereço</ion-label>
+            <ion-input type="text"></ion-input>
+          </ion-item>
+        <ion-item>
+              <ion-label position="floating">Número de celular</ion-label>
+              <ion-input type="number"></ion-input>
+            </ion-item>  
+    </ion-list>   
+
+   <ion-list class="centerSettings" >
+     <ion-label>Opções</ion-label>
+     <ion-item>
+        <ion-icon slot="start" name="notifications"></ion-icon>
+        <ion-label> Notificações</ion-label>
+        <ion-toggle checked="true"></ion-toggle>
+      </ion-item>
+    
+      <ion-item>
+          <ion-icon slot="start" name="mail"></ion-icon>
+        <ion-label>Email </ion-label>
+        <ion-toggle  checked="true"></ion-toggle>
+      </ion-item>
+
+    </ion-list>
+
+      <ion-list class="centerSettings">
+     <ion-item>
+       <app-logout></app-logout>
+      
+    </ion-item>
+        
+   </ion-list>
+   
+   
+    
+</ion-content>
