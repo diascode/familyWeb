@@ -1,1 +1,9 @@
-{}
+{
+  "appId": "io.ionic.starter",
+  "appName": "mango",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "cordova": {},
+  "linuxAndroidStudioPath": "/opt/android-studio/bin/studio.sh"
+}

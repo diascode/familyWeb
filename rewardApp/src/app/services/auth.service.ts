@@ -9,6 +9,7 @@ import { AngularFirestore } from 'angularfire2/firestore';
 import { StorageserviceService } from './storageservice.service';
 import { AuthConstant } from './../config/auth-constant';
 import { AlertService } from './alert.service';
+import { BehaviorSubject } from 'rxjs';
 
  
 @Injectable({
@@ -16,7 +17,7 @@ import { AlertService } from './alert.service';
 })
 export class AuthService {
 
-  loggedIn: any;
+  userData= new BehaviorSubject('');
   userEmail: any;
 
   constructor(private fireAuth:AngularFireAuth,
@@ -25,7 +26,14 @@ export class AuthService {
     private storage: StorageserviceService,
     private alert: AlertService) { }
 
-  async loginFire(email,password){
+  getUserData(){
+    return this.storage.get(AuthConstant.AUTH)
+    .then(res =>{
+      this.userData.next(res);
+    })
+  }
+  
+    async loginFire(email,password){
 
       
         const result = this.fireAuth.auth.signInWithEmailAndPassword(email, password)
@@ -107,6 +115,7 @@ async logOutFire(){
     this.alert.presentAlert("Obrigado", "Volte Sempre")
     this.storage.removeItem(AuthConstant.AUTH).then(res =>{
       this.router.navigateByUrl('')
+      this.userData.next('')
     })
   })
   .then(res => this.router.navigateByUrl(`/home/feed`))   
