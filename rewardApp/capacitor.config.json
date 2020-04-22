@@ -1,9 +1,18 @@
 {
-  "appId": "io.ionic.starter",
+  "appId": "com.vieiradias.fidelidade",
   "appName": "fidelidade",
-  "bundledWebRuntime": false,
-  "npmClient": "npm",
   "webDir": "www",
-  "cordova": {},
-  "linuxAndroidStudioPath": "/opt/android-studio/bin/studio.sh"
+  "npmClient": "npm",
+  "cordova": {
+    "preferences": {
+      "ScrollEnabled": "false",
+      "android-minSdkVersion": "19",
+      "BackupWebStorage": "none",
+      "SplashMaintainAspectRatio": "true",
+      "FadeSplashScreenDuration": "300",
+      "SplashShowOnlyFirstTime": "false",
+      "SplashScreen": "screen",
+      "SplashScreenDelay": "3000"
+    }
+  }
 }

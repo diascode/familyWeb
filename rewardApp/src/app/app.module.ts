@@ -13,6 +13,10 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { environment } from '../environments/environment';
 import {AngularFireAuthModule} from 'angularfire2/auth';
+import { Base64ToGallery } from '@ionic-native/base64-to-gallery/ngx';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
+
+
 
 
 
@@ -24,15 +28,15 @@ import {AngularFireAuthModule} from 'angularfire2/auth';
      AppRoutingModule,
      AngularFireAuthModule,
      AngularFirestoreModule,
-     AngularFireModule.initializeApp(environment.firebaseConfig)
+     AngularFireModule.initializeApp(environment.firebaseConfig),
      
     ],
   providers: [
-    
     StatusBar,
     SplashScreen,
-    
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    BarcodeScanner,
+    Base64ToGallery
   ],
   bootstrap: [AppComponent]
 })
