@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<resources>
-    <string name="app_name">fidelidade</string>
-    <string name="title_activity_main">fidelidade</string>
-    <string name="package_name">com.vieiradias.fidelidade</string>
-    <string name="custom_url_scheme">com.vieiradias.fidelidade</string>
-</resources>

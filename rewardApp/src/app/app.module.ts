@@ -14,9 +14,12 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { environment } from '../environments/environment';
 import {AngularFireAuthModule} from 'angularfire2/auth';
 import { Base64ToGallery } from '@ionic-native/base64-to-gallery/ngx';
-import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
+import { QRScanner } from '@ionic-native/qr-scanner/ngx';
 
 
+/* AndroidStudio imports to be corrected: 
+import androidx.core.content.FileProvider;
+import androidx.core.app.ActivityCompat; */
 
 
 
@@ -28,14 +31,13 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
      AppRoutingModule,
      AngularFireAuthModule,
      AngularFirestoreModule,
-     AngularFireModule.initializeApp(environment.firebaseConfig),
-     
+     AngularFireModule.initializeApp(environment.firebaseConfig)
     ],
   providers: [
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    BarcodeScanner,
+    QRScanner,
     Base64ToGallery
   ],
   bootstrap: [AppComponent]

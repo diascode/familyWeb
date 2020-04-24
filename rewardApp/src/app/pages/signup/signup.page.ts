@@ -35,7 +35,7 @@ export class SignupPage implements OnInit {
 
   signUp(){
     if(this.validateinputs()){
-      this.userServices.loginFire(this.userData.email, this.userData.password);
+      this.userServices.registerFire(this.userData.email, this.userData.password);
       this.userData.email ="";
       this.userData.password="";
     }else{
