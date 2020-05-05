@@ -11,6 +11,7 @@ export class MenuDetailsResolverService implements Resolve<any> {
 
   resolve(route: ActivatedRouteSnapshot){
     let id = route.paramMap.get('id');
+    console.log('resolver'+id);
     return this.menuService.getMenuByID(id);
 
   }

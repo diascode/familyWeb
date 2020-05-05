@@ -17,10 +17,13 @@ itemSelected : any;
               ) { }
 
   ngOnInit() {
+    console.log('menuDetails')
     if(this.route.snapshot.data['itemByID']){
       this.itemSelected = this.route.snapshot.data['itemByID'];
+      console.log(this.itemSelected);
       
     }
+    
   }
 
 }

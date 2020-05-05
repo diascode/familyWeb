@@ -35,7 +35,7 @@ export class MenuService {
     return Promise.resolve(this.menuData);
   }
   getMenuByID(id){
-    return this.menuData[id];
+    return this.menuData.find( menuData => menuData.id === id);
   }
   setMenuByID(id,menuData){
     return this.menuData[id] = menuData;
