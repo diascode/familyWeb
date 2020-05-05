@@ -1,0 +1,34 @@
+<div class="centerHome" > 
+  <ion-item lines="none">
+      <app-logo slot="start"></app-logo>
+      <ion-label color="warning"><h1><b>MENU</b></h1></ion-label>
+      <ion-tab-button color="warning" slot="end"tab="cart">
+        <ion-icon  name="cart"></ion-icon>
+        <ion-label>carrinho</ion-label>
+      </ion-tab-button>
+      
+  </ion-item>
+  
+  
+</div>
+
+<ion-content>
+  <ion-card *ngFor ="let item of myMenu" >
+    <img src={{item.img}}/>
+     <ion-card-content>
+      <ion-row  align-items-start>
+        
+        <ion-col >
+          <ion-card-title>
+            {{item.name}}
+          </ion-card-title>
+        </ion-col>
+        <ion-col>sm:{{item.small | currency:'BRL':true}}</ion-col>  
+        <ion-col>md:{{item.medium | currency:'BRL':true}}</ion-col>
+        <ion-col>lg:{{item.large | currency:'BRL':true}}</ion-col>
+      </ion-row>
+      <ion-button shape="round" color="warning" expand="full" (click)="chooseItem(item.id)"> Adicionar no carrinho</ion-button>  
+    </ion-card-content>
+            
+  </ion-card>
+</ion-content>

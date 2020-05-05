@@ -10,6 +10,7 @@ import { StorageserviceService } from './storageservice.service';
 import { AuthConstant } from './../config/auth-constant';
 import { AlertService } from './alert.service';
 import { BehaviorSubject } from 'rxjs';
+import { RewardService } from './reward.service';
 
 
 @Injectable({
@@ -24,7 +25,8 @@ export class AuthService {
               private router: Router,
               private fDb: AngularFirestore,
               private storage: StorageserviceService,
-              private alert: AlertService) { }
+              private alert: AlertService, 
+              private reward: RewardService) { }
 
   getUserData() {
     return this.storage.get(AuthConstant.AUTH)
@@ -40,10 +42,11 @@ export class AuthService {
 
      .then(result => {
         console.log('login');
+        // user guard promise for testing as saveUserData not working
         this.storage.store(AuthConstant.AUTH, result);
         this.storage.storageControl('get', email)
           .then(returned => {
-            console.log('returned', returned);
+            console.log('returned', result);
             if (!returned) {
               this.saveUserData(email)
                 .then(res => this.alert.presentToast(email, 'New account saved for this user'));
@@ -51,7 +54,7 @@ export class AuthService {
              // this.reward.rewardsCheck( user, returned )
               //.then( rewardResult => {    
 
-             this.updateUser(email)
+             this.updateUser(email, returned)
               .then(updated => console.log(email, updated))
               .catch(err => console.log(err));
 
@@ -116,6 +119,7 @@ export class AuthService {
       lastLogin: new Date().toLocaleString(),
       id: ''
     };
+    
     this.fDb.collection('User').doc('details').set({
       userName: email,
       creation: userObj.creation,
@@ -126,23 +130,36 @@ export class AuthService {
     })
       .then(res => {
         this.alert.presentToast('Dados', 'Dados salvo');
+        console.log('saveObj', userObj);
         return this.storage.storageControl('set', email, userObj);
       });
     console.log('save');
     return this.storage.storageControl('get', email);
 }
 
-  updateUser(theUser) {
+  updateUser(theUser, theUserData) {
+    var data = theUserData;
+    console.log('data', data);
+    let newData = {
+      creation: theUserData.creation,
+      logins: theUserData.logins,
+      rewardCount: theUserData.rewardCount,
+      lastLogin: new Date().toLocaleString(),
+      
+    }
     this.fDb.collection('User').doc('details').update( {
       userName: theUser,
-      logins: 1,
-      rewardCount: 6,
+      logins: newData.lastLogin + 1,
+      rewardCount: 0,
       lastLogin: new Date().toLocaleString(),
 
     })
 .then(res => {
-    this.alert.presentToast('Dados', 'Dados salvo');
-    console.log(res)
+    this.alert.presentToast('Dados', 'Dados atualizados');
+    console.log('newData', newData);
+    console.log('res', res);
+    return this.storage.storageControl('set', theUser, newData);
+    
 })
 .catch(function(error) {
     // The document probably doesn't exist.
@@ -187,6 +204,8 @@ export class AuthService {
       })
       .then(res => this.router.navigateByUrl(`/home/feed`))
       .catch(err => this.alert.presentAlert('err', err));
-
+    this.storage.clear().then(res => {
+      console.log(res);
+    }).catch(err => console.log(err));
   }
 }

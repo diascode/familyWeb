@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>menuDetail</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="itemSelected">
+    <ion-card-header>
+      <ion-card-title>
+        {{ itemSelected.id }}
+      </ion-card-title>
+      <ion-card-subtitle>
+          {{ itemSelected.name }}
+      </ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+
+</ion-content>

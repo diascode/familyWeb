@@ -9,7 +9,15 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
+  },  {
+    path: 'menu',
+    loadChildren: () => import('./pages/menu/menu.module').then( m => m.MenuPageModule)
+  },
+  {
+    path: 'menu-detail',
+    loadChildren: () => import('./pages/menu-detail/menu-detail.module').then( m => m.MenuDetailPageModule)
   }
+
   
 ];
 @NgModule({
