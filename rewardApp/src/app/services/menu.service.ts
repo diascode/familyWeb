@@ -5,27 +5,27 @@ import { Injectable } from '@angular/core';
 })
 export class MenuService {
 
-    menuData: any[] = [
-    {id:'cof', name:'Coffee', description:'The classic standard, our exclusive select blend',
-    img: 'assets/img/test/coffee.jpg', small: 1.50, medium: 2.50, large: 3.25},
+  menuData: any[] = [
+    {id:'ham', name:'Hamburguer', description:'Simplesmente Pão com carne',
+    img: 'assets/img/qb-burguer/hamburguer.jpg', price: 15.00 },
     
-    {id:'lat', name:'Latte', description: 'A blend of espresso, steam milk, and foam',
-    img: 'assets/img/test/latte.jpg', small: 2.00, medium: 3.00, large: 3.75},
+    {id:'cbu', name:'Cheese Burguer', description: 'Pão, Carne e Queijo',
+    img: 'assets/img/qb-burguer/hamburguer.jpg', price: 15.90},
     
-    {id:'moc', name:'Mocha', description:'Espresso, melted chocolate, and steamed milk',
-    img: 'assets/img/test/mocha.jpg', small: 2.30, medium: 3.15, large: 4.00},
+    {id:'csl', name:'Cheese Salada', description:'Pão, carne e queijo, alface, tomate, cebola roxa',
+    img: 'assets/img/qb-burguer/cheese-salad.jpg', price: 17.90},
 
-    {id:'esp', name:'Espresso', description:'The classic espresso',
-    img: 'assets/img/test/espresso.jpg', small: 1.75, medium: 2.50, large: 3.50},
+    {id:'cba', name:'Cheese Bacon', description:'Pão, carne, queijo e bacon',
+    img: 'assets/img/qb-burguer/cheese-bacon.jpg', price: 21},
 
-    {id:'cap', name:'Cappuccino', description: 'Espresso, steamed milk, and a layer of foam',
-    img: 'assets/img/test/cappuccino.jpg', small: 1.85, medium: 2.75, large: 3.65},
+    {id:'qub', name:'Quintal Burguer', description: 'Pão, carne, queijo, cebola caramelizada e bacon',
+    img: 'assets/img/qb-burguer/quintal-burguer.jpg', price: 23},
 
-    {id:'ame', name:'Americano', description:'Espresso and hot water',
-    img: 'assets/img/test/americano.jpg', small: 1.60, medium: 2.50, large: 3.45},
+    {id:'qve', name:'QB Vegie Salada', description:'Pão, hamburguer de abobrinha e beringela, queijo e salada',
+    img: 'assets/img/qb-burguer/qb-salada-vegie.jpg', price: 22},
 
-    {id:'mac', name:'Macchiato', description:'Espresso topped with foamed milk',
-    img: 'assets/img/test/macchiato.jpg', small: 2.10, medium: 3.05, large: 3.90  }
+    {id:'qfr', name:'QB Frango Salada', description:'Pão, frango empanado, queijo, alface, tomate, cebola roxa e molho',
+    img: 'assets/img/qb-burguer/qb-chicken-salada.jpg', price: 16  }
 
   ];
 

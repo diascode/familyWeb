@@ -14,7 +14,7 @@
 
 <ion-content>
   <ion-card *ngFor ="let item of myMenu" >
-    <img src={{item.img}}/>
+    <img height="350px" src={{item.img}}/>
      <ion-card-content>
       <ion-row  align-items-start>
         
@@ -23,9 +23,7 @@
             {{item.name}}
           </ion-card-title>
         </ion-col>
-        <ion-col>sm:{{item.small | currency:'BRL':true}}</ion-col>  
-        <ion-col>md:{{item.medium | currency:'BRL':true}}</ion-col>
-        <ion-col>lg:{{item.large | currency:'BRL':true}}</ion-col>
+        <ion-col>{{item.price | currency:'BRL':true}}</ion-col>  
       </ion-row>
       <ion-button shape="round" color="warning" expand="full" [href]="'/home/menu-detail/'+item.id"> Adicionar no carrinho</ion-button>  
     </ion-card-content>

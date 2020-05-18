@@ -19,7 +19,7 @@ export class IndexguardGuard implements CanActivate {
       resolve(true);
       this.storageService.get(AuthConstant.AUTH).then(res => {
         if (res) {
-          this.router.navigate(['home'])
+          this.router.navigate(['home/feed'])
           resolve(false);// false means guard will not block user and it will redirect to home as storage is present
         } else {
           resolve(true)

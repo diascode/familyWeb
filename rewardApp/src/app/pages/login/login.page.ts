@@ -30,7 +30,7 @@ export class LoginPage implements OnInit {
     this.fireAuth.auth.onAuthStateChanged( user => {
       if (user) {
         this.userEmail = user.email;
-        this.router.navigateByUrl(`/home`);
+        this.router.navigateByUrl(`/home/feed`);
       }
     })
   }
