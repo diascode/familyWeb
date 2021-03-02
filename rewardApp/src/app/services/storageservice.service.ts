@@ -11,12 +11,12 @@ export class StorageserviceService {
 
   constructor() { }
 
-  async storageControl(action, storagekey?,value?:any) {
-    const encryptedValue = btoa(escape(JSON.stringify(value)));
+  async storageControl(action, storagekey?,valueR?:any) {
+    
     if (action == 'set'){
       return await Storage.set({
         key: storagekey,
-        value: encryptedValue
+        value: valueR
       });
     }
     if (action == 'get'){

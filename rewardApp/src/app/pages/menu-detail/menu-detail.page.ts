@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Router, ActivatedRoute } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
+import { CartService } from 'src/app/services/cart.service';
 
 
 @Component({
@@ -10,7 +12,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class MenuDetailPage implements OnInit {
 
-  itemSelected = {
+  itemSelected =  {
     id:'',
     name:'',
     description:'',
@@ -19,10 +21,17 @@ export class MenuDetailPage implements OnInit {
     option1:'',
     option2:'',
     option3:'none',
+    amount: 1,
   };
+  cart:any = [];
+  
+  cartItemCount: BehaviorSubject<number>;
+
+
   
     constructor(private router: Router,
                 private route: ActivatedRoute,
+                private cartservices: CartService
                 ) { }
   
     ngOnInit() {
@@ -31,6 +40,7 @@ export class MenuDetailPage implements OnInit {
         this.initObject(item);
   
       }
+      this.cart = this.cartservices.getCart;
     }
     initObject(myData){
       this.itemSelected.id = myData.id;
@@ -41,5 +51,6 @@ export class MenuDetailPage implements OnInit {
     }
     addToCart(){
       console.log('clicked', this.itemSelected);
+      this.cartservices.addProduct(this.itemSelected);
     }
   }
