@@ -1,9 +1,11 @@
 
-<ion-content>
+<ion-card>
   <div class='center'>
     <app-logo></app-logo>
     <h1>Cadastro</h1>
 </div>
+
+<ion-card>
 <form>
 <ion-list>
   <ion-item>
@@ -16,11 +18,12 @@
       <ion-input type="password" name="password" [(ngModel)]="userData.password"></ion-input>
     </ion-item>
 
-    <ion-button expand="block" shape='block' color='warning' (click)="signUp()">Criar Conta</ion-button>
+    <ion-button expand="block" shape='block' color="secondary" (click)="signUp()">Criar Conta</ion-button>
 </ion-list>
 </form>
 
 <ion-item>
   <a [routerLink]="[ '/login' ]">Já tenho uma conta </a>
 </ion-item>  
-</ion-content>
+</ion-card>
+</ion-card>

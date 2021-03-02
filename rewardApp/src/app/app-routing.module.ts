@@ -20,6 +20,10 @@ const routes: Routes = [
   {
     path: 'checkout',
     loadChildren: () => import('./pages/checkout/checkout.module').then( m => m.CheckoutPageModule)
+  },
+  {
+    path: 'recoverpassword',
+    loadChildren: () => import('./pages/recoverpassword/recoverpassword.module').then( m => m.RecoverpasswordPageModule)
   }
 
   
